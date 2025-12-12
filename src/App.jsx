@@ -9,13 +9,18 @@ export default function App() {
     return data.plans.find((p) => String(p.id) === String(id)) || null
   }, [data, id])
 
+  // Force light theme and ensure class is present
+  useEffect(() => {
+    document.body.classList.add('light-theme')
+  }, [])
+
   return (
     <>
       <div className="background-glow" />
       <main className="container">
         <header className="header fade-in-up">
           <div className="logo-container">
-            <h1 className="brand-logo">SGF<span className="dot">.</span></h1>
+            <img src="/sgf.png" alt="SGF" className="brand-logo-img" />
           </div>
         </header>
 
@@ -45,26 +50,47 @@ export default function App() {
               {loading && <p>Cargando datos…</p>}
               {error && <p style={{ color: '#f88' }}>Error: {error}</p>}
               {!loading && !error && data && (
-                <div className="table-container">
-                  <table className="pricing-table">
-                    <thead>
-                      <tr>
-                        <th>Plan</th>
-                        <th>Tarifa Actual <br /><span className="small-text">(Hasta Nov 2025)</span></th>
-                        <th className="highlight-header">Nueva Tarifa <br /><span className="small-text">(Desde Dic 2025)</span></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {(selected ? [selected] : data.plans).map((plan) => (
-                        <tr key={plan.id}>
-                          <td>{plan.name}</td>
-                          <td>${Number(plan.oldPrice).toFixed(2)}</td>
-                          <td className="new-price">${Number(plan.newPrice).toFixed(2)}</td>
+                <>
+                  <div className="table-container">
+                    <table className="pricing-table">
+                      <thead>
+                        <tr>
+                          <th>Plan</th>
+                          <th>Tarifa Actual <br /><span className="small-text">(Hasta Nov 2025)</span></th>
+                          <th className="highlight-header">Nueva Tarifa <br /><span className="small-text">(Desde Dic 2025)</span></th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                      </thead>
+                      <tbody>
+                        {(selected ? [selected] : data.plans).map((plan) => (
+                          <tr key={plan.id}>
+                            <td>{plan.name}</td>
+                            <td>${Number(plan.oldPrice).toFixed(2)}</td>
+                            <td className="new-price">${Number(plan.newPrice).toFixed(2)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Mobile card layout (shown only on small screens via CSS) */}
+                  <div className="cards-container">
+                    {(selected ? [selected] : data.plans).map((plan) => (
+                      <article className="plan-card" key={plan.id}>
+                        <div className="plan-card-header">
+                          <h4 className="plan-card-title">{plan.name}</h4>
+                          <span className="plan-card-id">{plan.id}</span>
+                        </div>
+                        <div className="plan-card-body">
+                          <p className="plan-desc">{plan.description || ''}</p>
+                          <div className="plan-prices">
+                            <div className="old-price">Antes: ${Number(plan.oldPrice).toFixed(2)}</div>
+                            <div className="new-price">Ahora: ${Number(plan.newPrice).toFixed(2)}</div>
+                          </div>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </>
               )}
             </div>
 

@@ -9,6 +9,42 @@
     --font-main: 'Outfit', sans-serif;
 }
 
+/* Light theme overrides (applied via body.light-theme) */
+body.light-theme {
+    --bg-color: #f6f8fa;
+    --card-bg: rgba(255,255,255,0.9);
+    --text-color: #0f1720;
+    --highlight-color: #0066cc;
+    --accent-color: #0b84ff;
+    --glass-border: rgba(0,0,0,0.06);
+}
+
+/* Override places that used hard-coded white so text becomes dark in light-theme */
+body.light-theme .content-text,
+body.light-theme .content-text p,
+body.light-theme .section-subtitle,
+body.light-theme .info-note,
+body.light-theme .contact-sub,
+body.light-theme .footer,
+body.light-theme .pricing-table th,
+body.light-theme .pricing-table td,
+body.light-theme .pricing-table .new-price,
+body.light-theme .small-text {
+    color: var(--text-color) !important;
+}
+
+/* Make table header backgrounds lighter in light theme while keeping emphasis color */
+/* Stronger blue header and white text for better contrast */
+body.light-theme .pricing-table th {
+    background: var(--accent-color);
+    color: #fff !important;
+}
+
+/* Ensure QR border and code contrast appropriately */
+body.light-theme .qr-code {
+    border-color: #fff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -55,6 +91,26 @@ body {
     margin-bottom: 2rem;
     text-align: center;
 }
+
+.logo-container { position: relative; display: flex; align-items: center; justify-content: center; }
+
+.brand-logo-img { max-width: 220px; height: auto; display: block; }
+
+.theme-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -25%);
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: var(--text-color);
+    padding: 0.4rem 0.6rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+body.light-theme .theme-toggle { border-color: rgba(0,0,0,0.08); }
 
 .brand-logo {
     font-size: 3rem;
@@ -200,7 +256,9 @@ body {
 .table-container { overflow-x: auto; border-radius: 16px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
 .pricing-table { width: 100%; border-collapse: collapse; background: rgba(255, 255, 255, 0.02); min-width: 500px; }
 .pricing-table th, .pricing-table td { padding: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-.pricing-table th { background: rgba(112, 0, 255, 0.1); color: #fff; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
+.pricing-table th { background: var(--accent-color); color: #fff; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
+/* Ensure the small '(Hasta ...)' and '(Desde ...)' labels in headers are white for contrast */
+.pricing-table th .small-text { color: #fff !important; opacity: 0.9; }
 .pricing-table th.highlight-header { background: rgba(0, 242, 255, 0.15); color: var(--highlight-color); }
 .pricing-table tr:last-child td { border-bottom: none; }
 .pricing-table tr:hover { background: rgba(255, 255, 255, 0.03); }
@@ -220,4 +278,32 @@ body {
   .main-title { font-size: 1.8rem; }
   .pricing-table th, .pricing-table td { padding: 0.75rem 0.5rem; font-size: 0.9rem; }
   .pricing-table .new-price { font-size: 1rem; }
+}
+
+/* Responsive: show cards on small screens, table on larger */
+.cards-container { display: none; gap: 1rem; }
+
+@media (max-width: 768px) {
+    .table-container { display: none; }
+    .cards-container { display: flex; flex-direction: column; }
+
+    .plan-card {
+        background: var(--card-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .plan-card-header { display:flex; justify-content:space-between; align-items:center; }
+    .plan-card-title { font-size: 1.1rem; margin:0; color: var(--text-color); }
+    .plan-card-id { font-size: 0.85rem; color: var(--highlight-color); font-weight:700; }
+
+    .plan-desc { margin:0 0 0.5rem 0; color: var(--text-color); }
+    .plan-prices { display:flex; justify-content:space-between; gap:1rem; }
+    .plan-prices .old-price { color: rgba(0,0,0,0.6); }
+    .plan-prices .new-price { color: var(--highlight-color); font-weight:700; }
 }
