@@ -1,0 +1,54 @@
+{
+  "segment": "res",
+  "plans": [
+    {
+      "id": "r1",
+      "name": "Plan de 300M",
+      "oldPrice": 24.0,
+      "newPrice": 27.6,
+      "description": "Conectividad estable para hogares."
+    },
+    {
+      "id": "r2",
+      "name": "Plan de 450M",
+      "oldPrice": 30.0,
+      "newPrice": 34.5,
+      "description": "Mayor velocidad para streaming y videollamadas."
+    },
+    {
+      "id": "r3",
+      "name": "Plan de 600M",
+      "oldPrice": 35.0,
+      "newPrice": 40.25,
+      "description": "Rendimiento superior para múltiples dispositivos."
+    },
+    {
+      "id": "r4",
+      "name": "Plan de 650M",
+      "oldPrice": 40.0,
+      "newPrice": 46.0,
+      "description": "Alta capacidad para hogares conectados."
+    },
+    {
+      "id": "r5",
+      "name": "Plan de 750M",
+      "oldPrice": 43.0,
+      "newPrice": 49.5,
+      "description": "Excelente para gaming y 4K."
+    },
+    {
+      "id": "r6",
+      "name": "Plan de 800M",
+      "oldPrice": 48.0,
+      "newPrice": 55.0,
+      "description": "Velocidad premium para hogar."
+    },
+    {
+      "id": "r7",
+      "name": "Plan de 1G",
+      "oldPrice": 65.0,
+      "newPrice": 74.6,
+      "description": "Gigabit para máxima exigencia."
+    }
+  ]
+}
