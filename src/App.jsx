@@ -112,7 +112,7 @@ export default function App() {
           </div>
 
           <div className="cta-section">
-            <p>Le agradecemos por su preferencia y fidelidad continua a Sisprot Global Fiber.</p>
+            <p>Agradecemos por su preferencia y fidelidad continua a Sisprot Global Fiber.</p>
             <p>Igualmente ante cualquier inquietud o preguntas contactar nuestro Call Center:</p>
             <a href="https://wa.me/584120261134" className="btn-primary" target="_blank" rel="noreferrer noopener" aria-label="Contactar por WhatsApp">
               <span className="icon">📱</span> 0412-0261134
