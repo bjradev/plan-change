@@ -78,7 +78,6 @@ export default function App() {
                       <article className="plan-card" key={plan.id}>
                         <div className="plan-card-header">
                           <h4 className="plan-card-title">{plan.name}</h4>
-                          <span className="plan-card-id">{plan.id}</span>
                         </div>
                         <div className="plan-card-body">
                           <p className="plan-desc">{plan.description || ''}</p>
