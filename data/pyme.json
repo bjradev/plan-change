@@ -1,0 +1,47 @@
+{
+  "segment": "pyme",
+  "plans": [
+       {
+      "id": "p1",
+      "name": "Plan de 150M",
+      "oldPrice": 24.00,
+      "newPrice": 27.60,
+      "description": "Conectividad empresarial básica para PyME."
+    },
+    {
+      "id": "p2",
+      "name": "Plan de 300M",
+      "oldPrice": 34.00,
+      "newPrice": 39.09,
+      "description": "Conectividad empresarial básica para PyME."
+    },
+    {
+      "id": "p3",
+      "name": "Plan de 400M",
+      "oldPrice": 45.00,
+      "newPrice": 51.74,
+      "description": "Mayor ancho de banda para operaciones en la nube."
+    },
+    {
+      "id": "p4",
+      "name": "Plan de 650M",
+      "oldPrice": 61.00,
+      "newPrice": 70.18,
+      "description": "Rendimiento sólido para múltiples usuarios y servicios."
+    },
+    {
+      "id": "p5",
+      "name": "Plan de 800M",
+      "oldPrice": 96.00,
+      "newPrice": 110.40,
+      "description": "Alta capacidad para videoconferencias y backups continuos."
+    },
+    {
+      "id": "p6",
+      "name": "Plan de 1G",
+      "oldPrice": 145.00,
+      "newPrice": 161.00,
+      "description": "Gigabit empresarial para máxima exigencia y SLA superior."
+    }
+  ]
+}
